@@ -52,36 +52,34 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
   }
 
   return (
-    <section id="report" className="px-6 py-20 md:py-32 bg-gradient-to-b from-gray-900 to-gray-800">
+    <section id="report" className="px-6 py-20 md:py-32 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <div className="section-header">
-          <h2 className="section-title">SUBMIT INCIDENT REPORT</h2>
-          <p className="section-subtitle">Help us decode this mystery. All reports encrypted.</p>
+          <h2 className="section-title">Submit a Report</h2>
+          <p className="section-subtitle">Help us investigate by sharing your observations.</p>
         </div>
 
         {/* Thanks Modal */}
         {showThanks && (
           <div className="modal-overlay animate-fade-in">
             <div className="modal animate-slide-up">
-              <div className="text-5xl mb-4 animate-glow">🐱</div>
-              <h3 className="text-2xl font-bold text-indigo-300 mb-2 uppercase tracking-wider">DATA RECEIVED</h3>
-              <p className="text-indigo-200 mb-4 font-mono">&gt; Sighting logged to encrypted database</p>
-              <p className="text-sm text-purple-300 font-mono">
-                <span className="text-yellow-400">&gt;</span> This is a satire investigation<br/>
-                <span className="text-yellow-400">&gt;</span> But the cat confusion is REAL<br/>
-                <span className="text-yellow-400">&gt;</span> Much mystery. Very data. WOW.
+              <div className="text-5xl mb-4">🐱</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You</h3>
+              <p className="text-gray-700 mb-3">Your report has been recorded and logged.</p>
+              <p className="text-sm text-gray-500">
+                Note: This investigation is satirical in nature, but we remain genuinely puzzled about the cat.
               </p>
             </div>
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="card">
-          {/* Agent Info */}
+          {/* Your Information */}
           <div className="mb-8">
-            <h3 className="text-lg font-bold text-indigo-300 mb-4 uppercase tracking-wider">&gt; AGENT DETAILS</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Your Information</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-mono text-indigo-300 mb-2">AGENT_NAME</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                 <input
                   type="text"
                   name="name"
@@ -91,7 +89,7 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-mono text-indigo-300 mb-2">CONTACT_EMAIL</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
                 <input
                   type="email"
                   name="email"
@@ -104,11 +102,11 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
           </div>
 
           {/* Sighting Details */}
-          <div className="mb-8 pb-8 border-b border-indigo-500/30">
-            <h3 className="text-lg font-bold text-indigo-300 mb-4 uppercase tracking-wider">&gt; INCIDENT COORDINATES</h3>
+          <div className="mb-8 pb-8 border-b border-gray-200">
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Sighting Details</h3>
             
             <div className="mb-4">
-              <label className="block text-sm font-mono text-indigo-300 mb-2">TIMESTAMP</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Date & Time</label>
               <input
                 type="datetime-local"
                 name="date"
@@ -120,13 +118,13 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <div>
-                <label className="block text-sm font-mono text-indigo-300 mb-2">FLOOR</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Floor</label>
                 <select name="floor" value={formData.floor} onChange={handleChange}>
                   {[1, 2, 3, 4, 5, 6].map(f => <option key={f} value={f}>Floor {f}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-mono text-indigo-300 mb-2">SECTOR</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Wing/Section</label>
                 <select name="wing" value={formData.wing} onChange={handleChange}>
                   <option>North</option>
                   <option>South</option>
@@ -136,65 +134,65 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-mono text-indigo-300 mb-2">LOCATION</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Specific Location</label>
                 <input
                   type="text"
                   name="location"
                   value={formData.location}
                   onChange={handleChange}
-                  placeholder="e.g., Server Room 7"
+                  placeholder="e.g., Server Room, Cafeteria"
                 />
               </div>
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-mono text-indigo-300 mb-2">FELINE_PROFILE</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Cat Description</label>
               <textarea
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
-                placeholder="Color, size, behavior, spy capabilities..."
+                placeholder="Color, size, behavior, distinctive features..."
                 className="h-24"
                 required
               />
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-mono text-indigo-300 mb-2">UNIT_COUNT</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Number of Cats Observed</label>
               <select name="catCount" value={formData.catCount} onChange={handleChange}>
-                <option value="1">1 unit</option>
-                <option value="2">2 units</option>
-                <option value="3-5">3-5 units (distributed swarm?)</option>
-                <option value="5+">5+ units (DOGE ARMY DETECTED)</option>
+                <option value="1">1 cat</option>
+                <option value="2">2 cats</option>
+                <option value="3-5">3-5 cats</option>
+                <option value="5+">5+ cats (swarm?)</option>
               </select>
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-mono text-indigo-300 mb-2">PHOTO_EVIDENCE</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Photo (URL)</label>
               <input
                 type="url"
                 name="photoUrl"
                 value={formData.photoUrl}
                 onChange={handleChange}
-                placeholder="https://..."
+                placeholder="https://example.com/photo.jpg"
               />
             </div>
           </div>
 
-          {/* Additional Data */}
+          {/* Additional Analysis */}
           <div className="mb-8">
-            <label className="block text-sm font-mono text-indigo-300 mb-2">ANALYSIS_NOTES</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Additional Notes</label>
             <textarea
               name="additionalNotes"
               value={formData.additionalNotes}
               onChange={handleChange}
-              placeholder="Theories? Connections? Is this a DOGE? Much confusion?"
+              placeholder="Your thoughts, theories, or observations..."
               className="h-20"
             />
           </div>
 
-          <button type="submit" className="btn-primary w-full md:w-auto uppercase font-bold tracking-wider">
-            TRANSMIT DATA
+          <button type="submit" className="btn-primary w-full md:w-auto">
+            Submit Report
           </button>
         </form>
       </div>
