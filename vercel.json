@@ -1,0 +1,5 @@
+{
+  "projectName": "censuscat",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next"
+}
