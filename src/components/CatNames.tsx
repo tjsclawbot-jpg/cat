@@ -3,14 +3,14 @@
 import { useState } from 'react'
 
 const suggestedNames = [
-  { name: 'Whiskers', icon: '👀' },
-  { name: 'Census', icon: '📊' },
-  { name: 'Deputy', icon: '🎯' },
-  { name: 'Orange Alert', icon: '🚨' },
-  { name: 'The Count', icon: '🔢' },
-  { name: 'Patches', icon: '🧩' },
-  { name: 'Bureau', icon: '🏛️' },
-  { name: 'Mystery', icon: '❓' },
+  { name: 'Agent Whiskers', icon: '🕵️' },
+  { name: 'Data Floof', icon: '📊' },
+  { name: 'Doge Spy', icon: '🐕' },
+  { name: 'The Matrix Cat', icon: '💻' },
+  { name: 'Orange AI', icon: '🤖' },
+  { name: 'Crypto Kitten', icon: '🔐' },
+  { name: 'Deep Learning Cat', icon: '🧠' },
+  { name: 'Elon\`s Doge Cat', icon: '🚀' },
 ]
 
 interface CatNamesProps {
@@ -36,19 +36,17 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
     .sort((a, b) => b.count - a.count)
 
   return (
-    <section className="px-6 py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section className="px-6 py-20 md:py-32 bg-gradient-to-b from-gray-800 to-gray-900">
       <div className="max-w-7xl mx-auto">
         <div className="section-header">
-          <h2 className="section-title">Name the Cat</h2>
-          <p className="section-subtitle">
-            What should we call our mysterious friend? Vote for your favorite.
-          </p>
+          <h2 className="section-title">IDENTITY PROTOCOL</h2>
+          <p className="section-subtitle">What shall we call this mysterious operative?</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Voting Grid */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Official Vote</h3>
+            <h3 className="text-lg font-bold text-indigo-300 mb-4 uppercase tracking-wider">&gt; CODE_NAMES</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {suggestedNames.map((item) => {
                 const count = votes[item.name] || 0
@@ -58,53 +56,53 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
                   <button
                     key={item.name}
                     onClick={() => onVote(item.name)}
-                    className="card-interactive flex items-center gap-3"
+                    className="card-interactive flex items-center gap-3 group"
                   >
-                    <span className="text-2xl">{item.icon}</span>
+                    <span className="text-2xl group-hover:animate-glow">{item.icon}</span>
                     <div className="text-left flex-1">
-                      <p className="font-semibold text-gray-900 text-sm">{item.name}</p>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5 mt-2 overflow-hidden">
+                      <p className="font-bold text-indigo-300 text-sm uppercase tracking-wider">{item.name}</p>
+                      <div className="w-full bg-gray-800 rounded-full h-1.5 mt-2 overflow-hidden border border-indigo-500/30">
                         <div 
-                          className="bg-blue-500 h-full transition-all"
+                          className="data-bar transition-all duration-300"
                           style={{ width: `${percentage}%` }}
                         ></div>
                       </div>
-                      <p className="text-xs text-gray-500 mt-1">{count} votes</p>
+                      <p className="text-xs text-yellow-400 mt-1 font-mono">{count} votes</p>
                     </div>
                   </button>
                 )
               })}
             </div>
-            <p className="text-sm text-gray-500 mt-4 text-center">
-              Total votes: <span className="font-semibold">{totalVotes}</span>
-            </p>
+            <div className="mt-6 p-4 rounded-lg bg-gray-900/50 border border-indigo-500/30 font-mono text-xs text-indigo-300">
+              <span className="text-yellow-400">&gt;</span> TOTAL_VOTES: <span className="text-pink-400 font-bold">{totalVotes}</span>
+            </div>
           </div>
 
           {/* Leaderboard & Custom */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Candidates</h3>
+            <h3 className="text-lg font-bold text-indigo-300 mb-4 uppercase tracking-wider">&gt; TOP_CANDIDATES</h3>
             
             <div className="card mb-4">
               {topNames.slice(0, 5).map((item, idx) => (
-                <div key={item.name} className="flex items-center gap-3 py-3 border-b border-gray-100 last:border-b-0">
-                  <span className="text-2xl font-bold text-gray-300 w-6 text-center">{idx + 1}</span>
+                <div key={item.name} className="flex items-center gap-3 py-3 border-b border-indigo-500/20 last:border-b-0">
+                  <span className="text-2xl font-bold text-indigo-500/50 w-8 text-center">#{idx + 1}</span>
                   <div className="flex-1">
-                    <p className="font-semibold text-gray-900">{item.icon} {item.name}</p>
+                    <p className="font-bold text-indigo-300 uppercase text-sm">{item.icon} {item.name}</p>
                   </div>
-                  <span className="badge badge-info text-xs">{item.count} votes</span>
+                  <span className="badge badge-info text-xs">{item.count}</span>
                 </div>
               ))}
             </div>
 
             {/* Custom submission */}
             <div className="card">
-              <h4 className="font-semibold text-gray-900 mb-3">Suggest a Name</h4>
+              <h4 className="font-bold text-indigo-300 mb-3 uppercase tracking-wider">&gt; CUSTOM_ID</h4>
               {!showCustom ? (
                 <button
                   onClick={() => setShowCustom(true)}
-                  className="btn-ghost w-full text-center"
+                  className="btn-secondary w-full text-center text-sm"
                 >
-                  + Add Your Suggestion
+                  + ADD CODENAME
                 </button>
               ) : (
                 <div className="space-y-3">
@@ -112,23 +110,32 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
                     type="text"
                     value={customName}
                     onChange={(e) => setCustomName(e.target.value)}
-                    placeholder="Enter cat name..."
+                    placeholder="Enter code name..."
                     onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
                     autoFocus
                   />
                   <div className="flex gap-2">
-                    <button onClick={handleSubmit} className="btn-primary flex-1">
-                      Submit
+                    <button onClick={handleSubmit} className="btn-primary flex-1 text-sm">
+                      EXECUTE
                     </button>
                     <button
                       onClick={() => setShowCustom(false)}
-                      className="btn-secondary flex-1"
+                      className="btn-secondary flex-1 text-sm"
                     >
-                      Cancel
+                      ABORT
                     </button>
                   </div>
                 </div>
               )}
+            </div>
+
+            {/* Doge corner */}
+            <div className="mt-4 p-4 rounded-lg bg-purple-900/30 border border-purple-500/50 text-center">
+              <p className="text-sm">
+                <span className="wow-text such-data">much</span> 
+                <span className="wow-text very-mystery"> name</span>
+              </p>
+              <p className="text-xs text-purple-300 mt-2">very doge. such identity. WOW.</p>
             </div>
           </div>
         </div>
