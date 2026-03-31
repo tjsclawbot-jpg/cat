@@ -56,7 +56,7 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
       <div className="max-w-4xl mx-auto">
         <div className="section-header">
           <h2 className="section-title text-white">Submit a Report</h2>
-          <p className="section-subtitle text-purple-100">Help us investigate by sharing your observations.</p>
+          <p className="section-subtitle text-white">Help us investigate by sharing your observations.</p>
         </div>
 
         {/* Thanks Modal */}
