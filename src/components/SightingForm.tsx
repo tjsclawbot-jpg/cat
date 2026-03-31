@@ -52,11 +52,11 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
   }
 
   return (
-    <section id="report" className="px-6 py-20 md:py-32 bg-gray-50">
+    <section id="report" className="px-6 py-20 md:py-32 bg-gradient-to-br from-purple-600 via-indigo-600 to-indigo-800">
       <div className="max-w-4xl mx-auto">
         <div className="section-header">
-          <h2 className="section-title">Submit a Report</h2>
-          <p className="section-subtitle">Help us investigate by sharing your observations.</p>
+          <h2 className="section-title text-white">Submit a Report</h2>
+          <p className="section-subtitle text-purple-100">Help us investigate by sharing your observations.</p>
         </div>
 
         {/* Thanks Modal */}
@@ -73,13 +73,13 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="card">
+        <form onSubmit={handleSubmit} className="card bg-white/95 backdrop-blur-sm">
           {/* Your Information */}
           <div className="mb-8">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Your Information</h3>
+            <h3 className="text-lg font-bold text-purple-900 mb-4">Your Information</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                <label className="block text-sm font-medium text-purple-900 mb-2">Full Name</label>
                 <input
                   type="text"
                   name="name"
@@ -89,7 +89,7 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <label className="block text-sm font-medium text-purple-900 mb-2">Email Address</label>
                 <input
                   type="email"
                   name="email"
@@ -102,11 +102,11 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
           </div>
 
           {/* Sighting Details */}
-          <div className="mb-8 pb-8 border-b border-gray-200">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Sighting Details</h3>
+          <div className="mb-8 pb-8 border-b border-purple-100">
+            <h3 className="text-lg font-bold text-purple-900 mb-4">Sighting Details</h3>
             
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Date & Time</label>
+              <label className="block text-sm font-medium text-purple-900 mb-2">Date & Time</label>
               <input
                 type="datetime-local"
                 name="date"
@@ -118,13 +118,13 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Floor</label>
+                <label className="block text-sm font-medium text-purple-900 mb-2">Floor</label>
                 <select name="floor" value={formData.floor} onChange={handleChange}>
                   {[1, 2, 3, 4, 5, 6].map(f => <option key={f} value={f}>Floor {f}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Wing/Section</label>
+                <label className="block text-sm font-medium text-purple-900 mb-2">Wing/Section</label>
                 <select name="wing" value={formData.wing} onChange={handleChange}>
                   <option>North</option>
                   <option>South</option>
@@ -134,7 +134,7 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Specific Location</label>
+                <label className="block text-sm font-medium text-purple-900 mb-2">Specific Location</label>
                 <input
                   type="text"
                   name="location"
@@ -146,7 +146,7 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Cat Description</label>
+              <label className="block text-sm font-medium text-purple-900 mb-2">Cat Description</label>
               <textarea
                 name="description"
                 value={formData.description}
@@ -158,7 +158,7 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Number of Cats Observed</label>
+              <label className="block text-sm font-medium text-purple-900 mb-2">Number of Cats Observed</label>
               <select name="catCount" value={formData.catCount} onChange={handleChange}>
                 <option value="1">1 cat</option>
                 <option value="2">2 cats</option>
@@ -168,7 +168,7 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Photo (URL)</label>
+              <label className="block text-sm font-medium text-purple-900 mb-2">Photo (URL)</label>
               <input
                 type="url"
                 name="photoUrl"
@@ -181,7 +181,7 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
 
           {/* Additional Analysis */}
           <div className="mb-8">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Additional Notes</label>
+            <label className="block text-sm font-medium text-purple-900 mb-2">Additional Notes</label>
             <textarea
               name="additionalNotes"
               value={formData.additionalNotes}
