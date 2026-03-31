@@ -55,8 +55,8 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
     <section id="report" className="px-6 py-20 md:py-32 bg-gradient-to-br from-purple-600 via-indigo-600 to-indigo-800">
       <div className="max-w-4xl mx-auto">
         <div className="section-header">
-          <h2 className="section-title !text-white">Submit a Report</h2>
-          <p className="section-subtitle !text-white">Help us investigate by sharing your observations.</p>
+          <h2 className="section-title" style={{ color: 'white' }}>Submit a Report</h2>
+          <p className="section-subtitle" style={{ color: 'white' }}>Help us investigate by sharing your observations.</p>
         </div>
 
         {/* Thanks Modal */}
