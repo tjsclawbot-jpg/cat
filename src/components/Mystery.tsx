@@ -4,46 +4,46 @@ import { useState } from 'react'
 
 const mysteries = [
   {
-    question: "What is the cat's origin?",
+    question: "What is the subject's origin?",
     status: "UNRESOLVED",
     confidence: 45,
     icon: "📍",
-    details: "No documentation of entry. No adoption records. No microchip. Appeared in building without explanation. Theories range from accidental entry to intentional placement."
+    details: "No documentation of entry. No adoption records. No microchip registration. Subject appeared in building without authorization. Theories range from accidental infiltration to deliberate placement by external party."
   },
   {
-    question: "Is this a data science operation?",
+    question: "Is this a surveillance operation?",
     status: "INVESTIGATING",
     confidence: 62,
     icon: "📊",
-    details: "Observed near data centers. Found in server rooms. Pattern suggests possible intelligence gathering. Could be behavioral data collection or information retrieval."
+    details: "Subject frequently observed near data centers and server facilities. Behavior pattern suggests possible intelligence gathering. Could indicate information retrieval or reconnaissance mission."
   },
   {
-    question: "Could it be a DOGE operative?",
+    question: "What is the operational purpose?",
     status: "UNCONFIRMED",
     confidence: 38,
-    icon: "🚀",
-    details: "Left over from previous organization? Orange coloring suggests visibility. Highly intelligent behavior. Pattern recognition capabilities appear advanced. Possibly trained."
+    icon: "🔍",
+    details: "Pest control? Building security test? Behavioral observation? No official documentation exists. Actions inconsistent with standard facility animal protocols. Purpose remains classified."
   },
   {
-    question: "How many cats are there?",
+    question: "How many subjects are involved?",
     status: "UNCLEAR",
     confidence: 72,
     icon: "🔢",
-    details: "Multiple sightings reported. Could be one cat moving throughout building, or coordinated team. Descriptions vary by observer. Consistency unclear."
+    details: "Multiple independent sightings documented. Could be single subject moving throughout facility, or coordinated team. Witness descriptions vary. Identity confirmation pending."
   },
   {
-    question: "What is the purpose?",
+    question: "What are the threat parameters?",
     status: "SPECULATIVE",
     confidence: 28,
-    icon: "🎯",
-    details: "Pest control? Data gathering? Stress relief initiative? No official documentation exists. Behavior inconsistent with standard office cat placement."
+    icon: "⚠️",
+    details: "Subject displays non-aggressive behavior. No documented incidents. Threat level currently assessed as minimal. Recommend continued monitoring and incident reporting."
   },
   {
-    question: "Are pets now allowed at work?",
+    question: "Policy status and authorization?",
     status: "POLICY CONFLICT",
     confidence: 85,
     icon: "📋",
-    details: "Official pet-free workplace policy remains unchanged. Yet a cat exists in the building. No exception documentation found. Policy enforcement unclear."
+    details: "Official no-animal workplace policy remains unchanged. Yet subject persists in secure facility. No exception documentation located. Policy enforcement status unclear and under review."
   },
 ]
 

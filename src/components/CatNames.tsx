@@ -4,13 +4,13 @@ import { useState } from 'react'
 
 const suggestedNames = [
   { name: 'Agent Whiskers', icon: '🕵️' },
-  { name: 'Data Floof', icon: '📊' },
-  { name: 'The Analyst', icon: '📈' },
-  { name: 'Orange Alert', icon: '⚠️' },
-  { name: 'Patches', icon: '🧩' },
-  { name: 'Inspector', icon: '🔍' },
-  { name: 'Cipher', icon: '🔐' },
-  { name: 'Mystery', icon: '❓' },
+  { name: 'Subject Zero', icon: '📋' },
+  { name: 'Tabby Classified', icon: '🔐' },
+  { name: 'The Operative', icon: '👁️' },
+  { name: 'Orange Suspect', icon: '❓' },
+  { name: 'File-13', icon: '📁' },
+  { name: 'Cipher Cat', icon: '🔍' },
+  { name: 'Unknown Entity', icon: '⚠️' },
 ]
 
 interface CatNamesProps {
