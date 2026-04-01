@@ -12,17 +12,17 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold font-mono mb-3 tracking-wider">FEDERAL DOCUMENTATION</h4>
-            <div className="text-sm text-gray-400 space-y-2 font-mono">
-              <p><span className="text-red-700">[F]</span> Tj Cichecki</p>
-              <p>Workhorse Collective</p>
-              <p><span className="text-red-700">[A]</span> Authorized Agent</p>
+            <h4 className="text-white font-bold mb-3 tracking-wider" style={{ fontFamily: 'Courier New, monospace' }}>DOCUMENTATION</h4>
+            <div className="text-sm text-gray-400 space-y-2" style={{ fontFamily: 'Courier New, monospace' }}>
+              <p><span className="text-red-700">[F]</span> Federal Case File</p>
+              <p>Investigation Database</p>
+              <p><span className="text-red-700">[C]</span> Classified Records</p>
             </div>
           </div>
 
           <div>
-            <h4 className="text-white font-bold font-mono mb-3 tracking-wider">ACCESS INQUIRIES</h4>
-            <div className="text-sm text-gray-400 space-y-2 font-mono">
+            <h4 className="text-white font-bold mb-3 tracking-wider" style={{ fontFamily: 'Courier New, monospace' }}>CONTACT</h4>
+            <div className="text-sm text-gray-400 space-y-2" style={{ fontFamily: 'Courier New, monospace' }}>
               <p>
                 <a href="mailto:tj@wrkhrs.co" className="text-red-700 hover:text-red-600 transition">
                   SECURE CONTACT
@@ -38,8 +38,8 @@ export default function Footer() {
         </div>
 
         <div className="border-t-2 border-red-800 pt-8">
-          <p className="text-xs text-gray-600 text-center font-mono tracking-wider">
-            [DECLASSIFIED] CASE FILE | FEDERAL DATABASE | BUILT AUTONOMOUSLY
+          <p className="text-xs text-gray-600 text-center tracking-wider" style={{ fontFamily: 'Courier New, monospace' }}>
+            [DECLASSIFIED] CASE FILE | FEDERAL DATABASE | CREATED BY TJ CICHECKI
           </p>
         </div>
       </div>

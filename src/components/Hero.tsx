@@ -11,23 +11,23 @@ export default function Hero() {
             ▓▓▓ DECLASSIFIED ▓▓▓
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-black font-mono" style={{ letterSpacing: '1px' }}>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-black" style={{ letterSpacing: '1px', fontFamily: 'Courier New, monospace' }}>
             FEDERAL CASE FILE
             <br/>
             UNKNOWN ENTITY
           </h2>
           
-          <p className="text-lg text-black mb-3 font-mono border-l-4 border-red-800 pl-4 bg-yellow-50 px-3 py-2">
+          <p className="text-lg text-black mb-3 border-l-4 border-red-800 pl-4 bg-yellow-50 px-3 py-2" style={{ fontFamily: 'Courier New, monospace' }}>
             SUBJECT: Unidentified feline specimen
             FACILITY: Census Bureau Headquarters
             STATUS: ACTIVE SURVEILLANCE
           </p>
-          <p className="text-lg text-gray-900 mb-3 font-mono text-sm">
+          <p className="text-lg text-gray-900 mb-3 text-sm" style={{ fontFamily: 'Courier New, monospace' }}>
             └─ THREAT LEVEL: UNKNOWN
             └─ ORIGIN: UNIDENTIFIED
             └─ CROSS-REFERENCE: [REDACTED]
           </p>
-          <p className="text-sm text-gray-800 mb-8 font-mono bg-red-50 px-3 py-2 border-l-4 border-red-800">
+          <p className="text-sm text-gray-800 mb-8 bg-red-50 px-3 py-2 border-l-4 border-red-800" style={{ fontFamily: 'Courier New, monospace' }}>
             Multiple independent sightings. Description: Orange tabby, medium frame. Behavior observed: Non-hostile, highly elusive. Purpose: [CLASSIFIED]
           </p>
 
