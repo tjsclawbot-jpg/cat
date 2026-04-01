@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 
+export const dynamic = 'force-dynamic'
+
 export default function PendingReports() {
   const [reports, setReports] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
