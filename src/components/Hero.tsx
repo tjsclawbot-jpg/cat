@@ -57,8 +57,8 @@ export default function Hero() {
           </div>
           
           {/* Stamp effect */}
-          <div className="absolute -top-8 -right-8 border-4 border-red-800 px-4 py-2 transform rotate-45 bg-red-200" style={{ fontSize: '12px', fontWeight: 'bold', color: '#991b1b', letterSpacing: '2px' }}>
-            TOP SECRET
+          <div className="absolute -top-8 -right-8 border-4 border-red-800 px-4 py-2 transform rotate-45 bg-red-200" style={{ fontSize: '11px', fontWeight: 'bold', color: '#991b1b', letterSpacing: '2px' }}>
+            [DECLASSIFIED]
           </div>
         </div>
       </div>

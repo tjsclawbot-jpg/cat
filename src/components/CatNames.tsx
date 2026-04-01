@@ -3,14 +3,14 @@
 import { useState } from 'react'
 
 const suggestedNames = [
-  { name: 'Agent Whiskers', icon: '🕵️' },
-  { name: 'Subject Zero', icon: '📋' },
-  { name: 'Tabby Classified', icon: '🔐' },
-  { name: 'The Operative', icon: '👁️' },
-  { name: 'Orange Suspect', icon: '❓' },
-  { name: 'File-13', icon: '📁' },
-  { name: 'Cipher Cat', icon: '🔍' },
-  { name: 'Unknown Entity', icon: '⚠️' },
+  { name: 'Agent Whiskers', icon: '[A]' },
+  { name: 'Subject Zero', icon: '[0]' },
+  { name: 'Tabby Classified', icon: '[C]' },
+  { name: 'The Operative', icon: '[O]' },
+  { name: 'Orange Suspect', icon: '[S]' },
+  { name: 'File-13', icon: '[F]' },
+  { name: 'Cipher Cat', icon: '[X]' },
+  { name: 'Unknown Entity', icon: '[?]' },
 ]
 
 interface CatNamesProps {
@@ -58,7 +58,7 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
                     onClick={() => onVote(item.name)}
                     className="card-interactive flex items-center gap-3"
                   >
-                    <span className="text-2xl">{item.icon}</span>
+                    <span className="text-sm font-bold text-black font-mono border border-black px-2 py-1 bg-yellow-50">{item.icon}</span>
                     <div className="text-left flex-1">
                       <p className="font-bold text-gray-900 text-sm">{item.name}</p>
                       <div className="w-full bg-gray-200 rounded-full h-1.5 mt-2 overflow-hidden">
@@ -73,9 +73,9 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
                 )
               })}
             </div>
-            <div className="mt-6 p-4 rounded-lg bg-gray-50 border border-gray-200 text-sm text-gray-600">
-              <span className="font-semibold text-gray-900">Total votes: </span>
-              <span className="font-bold text-purple-600">{totalVotes}</span>
+            <div className="mt-6 p-4 rounded-none bg-yellow-50 border-2 border-black text-sm text-gray-900 font-mono">
+              <span className="font-semibold">TOTAL VOTES: </span>
+              <span className="font-bold text-red-800">{totalVotes}</span>
             </div>
           </div>
 
@@ -85,25 +85,25 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
             
             <div className="card mb-4">
               {topNames.slice(0, 5).map((item, idx) => (
-                <div key={item.name} className="flex items-center gap-3 py-3 border-b border-gray-200 last:border-b-0">
-                  <span className="text-2xl font-bold text-gray-300 w-8 text-center">#{idx + 1}</span>
+                <div key={item.name} className="flex items-center gap-3 py-3 border-b-2 border-black last:border-b-0 font-mono">
+                  <span className="text-sm font-bold text-gray-700 w-8 text-center">{idx + 1}.</span>
                   <div className="flex-1">
                     <p className="font-bold text-gray-900 text-sm">{item.icon} {item.name}</p>
                   </div>
-                  <span className="badge badge-info text-xs">{item.count}</span>
+                  <span className="bg-red-200 text-red-900 px-2 py-1 text-xs font-bold border border-black">{item.count}</span>
                 </div>
               ))}
             </div>
 
             {/* Custom submission */}
             <div className="card">
-              <h4 className="font-bold text-gray-900 mb-3">Suggest a Name</h4>
+              <h4 className="font-bold text-gray-900 mb-3 font-mono">SUBMIT NEW DESIGNATION</h4>
               {!showCustom ? (
                 <button
                   onClick={() => setShowCustom(true)}
-                  className="btn-secondary w-full text-center text-sm"
+                  className="btn-secondary w-full text-center text-sm font-mono"
                 >
-                  + Add Your Suggestion
+                  [+] ADD DESIGNATION
                 </button>
               ) : (
                 <div className="space-y-3">
@@ -116,14 +116,14 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
                     autoFocus
                   />
                   <div className="flex gap-2">
-                    <button onClick={handleSubmit} className="btn-primary flex-1 text-sm">
-                      Submit
+                    <button onClick={handleSubmit} className="btn-primary flex-1 text-sm font-mono">
+                      SUBMIT
                     </button>
                     <button
                       onClick={() => setShowCustom(false)}
-                      className="btn-secondary flex-1 text-sm"
+                      className="btn-secondary flex-1 text-sm font-mono"
                     >
-                      Cancel
+                      CANCEL
                     </button>
                   </div>
                 </div>

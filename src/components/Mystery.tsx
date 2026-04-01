@@ -7,42 +7,42 @@ const mysteries = [
     question: "What is the subject's origin?",
     status: "UNRESOLVED",
     confidence: 45,
-    icon: "📍",
+    icon: "[?]",
     details: "No documentation of entry. No adoption records. No microchip registration. Subject appeared in building without authorization. Theories range from accidental infiltration to deliberate placement by external party."
   },
   {
     question: "Is this a surveillance operation?",
     status: "INVESTIGATING",
     confidence: 62,
-    icon: "📊",
+    icon: "[!]",
     details: "Subject frequently observed near data centers and server facilities. Behavior pattern suggests possible intelligence gathering. Could indicate information retrieval or reconnaissance mission."
   },
   {
     question: "What is the operational purpose?",
     status: "UNCONFIRMED",
     confidence: 38,
-    icon: "🔍",
+    icon: "[*]",
     details: "Pest control? Building security test? Behavioral observation? No official documentation exists. Actions inconsistent with standard facility animal protocols. Purpose remains classified."
   },
   {
     question: "How many subjects are involved?",
     status: "UNCLEAR",
     confidence: 72,
-    icon: "🔢",
+    icon: "[#]",
     details: "Multiple independent sightings documented. Could be single subject moving throughout facility, or coordinated team. Witness descriptions vary. Identity confirmation pending."
   },
   {
     question: "What are the threat parameters?",
     status: "SPECULATIVE",
     confidence: 28,
-    icon: "⚠️",
+    icon: "[x]",
     details: "Subject displays non-aggressive behavior. No documented incidents. Threat level currently assessed as minimal. Recommend continued monitoring and incident reporting."
   },
   {
     question: "Policy status and authorization?",
     status: "POLICY CONFLICT",
     confidence: 85,
-    icon: "📋",
+    icon: "[P]",
     details: "Official no-animal workplace policy remains unchanged. Yet subject persists in secure facility. No exception documentation located. Policy enforcement status unclear and under review."
   },
 ]
@@ -66,7 +66,7 @@ export default function Mystery() {
               className="card-interactive text-left"
             >
               <div className="flex items-start gap-4 mb-3">
-                <span className="text-3xl">{mystery.icon}</span>
+                <span className="text-lg font-bold text-black font-mono border border-black px-2 py-1 bg-yellow-50">{mystery.icon}</span>
                 <div className="flex-1">
                   <h3 className="font-bold text-gray-900 mb-2">{mystery.question}</h3>
                   
