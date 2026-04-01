@@ -6,21 +6,10 @@ import { supabase } from '@/lib/supabase'
 export default function PendingReports() {
   const [reports, setReports] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const [authenticated, setAuthenticated] = useState(false)
 
   useEffect(() => {
-    checkAuth()
+    fetchPendingReports()
   }, [])
-
-  const checkAuth = async () => {
-    const { data: { session } } = await supabase.auth.getSession()
-    if (session?.user?.email === 'tjsclawbot@gmail.com') {
-      setAuthenticated(true)
-      fetchPendingReports()
-    } else {
-      setLoading(false)
-    }
-  }
 
   const fetchPendingReports = async () => {
     try {
@@ -72,15 +61,6 @@ export default function PendingReports() {
   }
 
   if (loading) return <div className="p-8">Loading...</div>
-
-  if (!authenticated) {
-    return (
-      <div className="p-8 bg-red-50 border-2 border-red-800" style={{ fontFamily: 'Courier New, monospace' }}>
-        <h1 className="text-2xl font-bold text-red-800">ACCESS DENIED</h1>
-        <p className="text-red-700">Authentication required. Please log in with authorized credentials.</p>
-      </div>
-    )
-  }
 
   return (
     <div className="min-h-screen bg-amber-100 p-8" style={{ fontFamily: 'Courier New, monospace' }}>
