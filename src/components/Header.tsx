@@ -4,11 +4,11 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 border-2 border-red-800 flex items-center justify-center text-xs font-bold text-red-700 bg-gray-800 font-mono">
-            [F]
+            [T]
           </div>
           <div>
-            <h1 className="text-lg font-bold text-white font-mono tracking-wider">CASE FILE DATABASE</h1>
-            <p className="text-xs text-red-700 font-mono">FEDERAL SURVEILLANCE PORTAL</p>
+            <h1 className="text-lg font-bold text-white font-mono tracking-wider">CENSUS CAT INVESTIGATION</h1>
+            <p className="text-xs text-red-700 font-mono">TJ CICHECKI - AUTHORIZED AGENT</p>
           </div>
         </div>
         

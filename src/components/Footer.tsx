@@ -14,9 +14,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold font-mono mb-3 tracking-wider">FEDERAL DOCUMENTATION</h4>
             <div className="text-sm text-gray-400 space-y-2 font-mono">
-              <p><span className="text-red-700">[F]</span> Workhorse Collective</p>
-              <p>Records Management Division</p>
-              <p><span className="text-red-700">[C]</span> Classified Authority</p>
+              <p><span className="text-red-700">[F]</span> Tj Cichecki</p>
+              <p>Workhorse Collective</p>
+              <p><span className="text-red-700">[A]</span> Authorized Agent</p>
             </div>
           </div>
 
