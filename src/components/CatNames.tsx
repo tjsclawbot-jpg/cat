@@ -33,11 +33,18 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
 
   const fetchVotes = async () => {
     try {
-      const res = await fetch('/api/votes/get')
-      if (res.ok) {
-        const data = await res.json()
-        setLiveVotes(data)
-      }
+      const { supabase } = await import('@/lib/supabase')
+      const { data, error } = await supabase
+        .from('votes')
+        .select('cat_name')
+
+      if (error) throw error
+
+      const voteCounts: Record<string, number> = {}
+      data?.forEach((vote: any) => {
+        voteCounts[vote.cat_name] = (voteCounts[vote.cat_name] || 0) + 1
+      })
+      setLiveVotes(voteCounts)
     } catch (error) {
       console.error('Error fetching votes:', error)
     } finally {
@@ -47,11 +54,12 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
 
   const handleVote = async (name: string) => {
     try {
-      await fetch('/api/votes/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ catName: name }),
-      })
+      const { supabase } = await import('@/lib/supabase')
+      const { error } = await supabase
+        .from('votes')
+        .insert([{ cat_name: name, created_at: new Date() }])
+
+      if (error) throw error
       onVote(name)
       fetchVotes()
     } catch (error) {

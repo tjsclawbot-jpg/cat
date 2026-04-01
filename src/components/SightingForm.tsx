@@ -31,15 +31,29 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
     setError(null)
 
     try {
-      const response = await fetch('/api/reports/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
+      const { supabase } = await import('@/lib/supabase')
+      const { data, error } = await supabase
+        .from('incident_reports')
+        .insert([
+          {
+            witness_name: formData.name,
+            witness_email: formData.email,
+            incident_date: formData.date,
+            floor: parseInt(formData.floor),
+            wing: formData.wing,
+            location: formData.location,
+            subject_description: formData.description,
+            cat_count: formData.catCount,
+            photo_url: formData.photoUrl,
+            additional_notes: formData.additionalNotes,
+            status: 'submitted',
+            created_at: new Date(),
+          },
+        ])
+        .select()
 
-      if (!response.ok) throw new Error('Failed to submit report')
+      if (error) throw new Error(error.message)
 
-      const data = await response.json()
       onNewSighting(formData)
       setSubmitted(true)
       setShowThanks(true)
