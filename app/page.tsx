@@ -6,6 +6,7 @@ import Hero from '@/src/components/Hero'
 import Mystery from '@/src/components/Mystery'
 import SightingForm from '@/src/components/SightingForm'
 import CatNames from '@/src/components/CatNames'
+import Gallery from '@/src/components/Gallery'
 import Footer from '@/src/components/Footer'
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
       <Mystery />
       <SightingForm onNewSighting={handleNewSighting} />
       <CatNames onVote={handleCatVote} votes={catVotes} />
+      <Gallery />
       <Footer />
     </main>
   )

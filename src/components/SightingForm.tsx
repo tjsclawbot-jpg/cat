@@ -22,25 +22,45 @@ export default function SightingForm({ onNewSighting }: SightingFormProps) {
 
   const [submitted, setSubmitted] = useState(false)
   const [showThanks, setShowThanks] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    onNewSighting(formData)
-    setSubmitted(true)
-    setShowThanks(true)
-    setTimeout(() => setShowThanks(false), 5000)
-    setFormData({
-      name: '',
-      email: '',
-      date: '',
-      floor: '3',
-      wing: 'North',
-      location: '',
-      description: '',
-      catCount: '1',
-      photoUrl: '',
-      additionalNotes: '',
-    })
+    setLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch('/api/reports/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) throw new Error('Failed to submit report')
+
+      const data = await response.json()
+      onNewSighting(formData)
+      setSubmitted(true)
+      setShowThanks(true)
+      setTimeout(() => setShowThanks(false), 5000)
+      setFormData({
+        name: '',
+        email: '',
+        date: '',
+        floor: '3',
+        wing: 'North',
+        location: '',
+        description: '',
+        catCount: '1',
+        photoUrl: '',
+        additionalNotes: '',
+      })
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Submission failed')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleChange = (e: any) => {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const suggestedNames = [
   { name: 'Agent Whiskers', icon: '[A]' },
@@ -21,18 +21,55 @@ interface CatNamesProps {
 export default function CatNames({ onVote, votes }: CatNamesProps) {
   const [customName, setCustomName] = useState('')
   const [showCustom, setShowCustom] = useState(false)
+  const [liveVotes, setLiveVotes] = useState<Record<string, number>>({})
+  const [loading, setLoading] = useState(true)
 
-  const handleSubmit = () => {
+  // Fetch vote data on mount
+  useEffect(() => {
+    fetchVotes()
+    const interval = setInterval(fetchVotes, 5000) // Refresh every 5 seconds
+    return () => clearInterval(interval)
+  }, [])
+
+  const fetchVotes = async () => {
+    try {
+      const res = await fetch('/api/votes/get')
+      if (res.ok) {
+        const data = await res.json()
+        setLiveVotes(data)
+      }
+    } catch (error) {
+      console.error('Error fetching votes:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleVote = async (name: string) => {
+    try {
+      await fetch('/api/votes/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ catName: name }),
+      })
+      onVote(name)
+      fetchVotes()
+    } catch (error) {
+      console.error('Error submitting vote:', error)
+    }
+  }
+
+  const handleSubmit = async () => {
     if (customName.trim()) {
-      onVote(customName)
+      await handleVote(customName)
       setCustomName('')
       setShowCustom(false)
     }
   }
 
-  const totalVotes = Object.values(votes).reduce((a, b) => a + b, 0) || 0
+  const totalVotes = Object.values(liveVotes).reduce((a, b) => a + b, 0) || 0
   const topNames = suggestedNames
-    .map(n => ({ ...n, count: votes[n.name] || 0 }))
+    .map(n => ({ ...n, count: liveVotes[n.name] || 0 }))
     .sort((a, b) => b.count - a.count)
 
   return (
@@ -55,7 +92,7 @@ export default function CatNames({ onVote, votes }: CatNamesProps) {
                 return (
                   <button
                     key={item.name}
-                    onClick={() => onVote(item.name)}
+                    onClick={() => handleVote(item.name)}
                     className="card-interactive flex items-center gap-3"
                   >
                     <span className="text-sm font-bold text-black font-mono border border-black px-2 py-1 bg-yellow-50">{item.icon}</span>
